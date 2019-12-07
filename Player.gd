@@ -13,4 +13,5 @@ func _physics_process(delta):
 		velocity.y -= jump_speed
 	velocity.y += gravity * delta
 	position += velocity
-	$Sprite.rotation_degrees = velocity.y * rotation_modifier
+	position.y = clamp(position.y, 0, get_viewport().size.y)
+	$Sprite.rotation_degrees = clamp(velocity.y * rotation_modifier, -90, 90)
