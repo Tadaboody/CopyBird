@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Wall.gd" type="Script" id=1]
+[ext_resource path="res://Pipe.tscn" type="PackedScene" id=2]
+
+[node name="Wall" type="Node2D"]
+script = ExtResource( 1 )
+window_height = 100
+
+[node name="UpperPipe" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.886275, 0.745098, 0.745098, 1 )
+position = Vector2( 2, 162 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -0.457382, 55 )
+
+[node name="LowerPipe" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -57.8907 )
