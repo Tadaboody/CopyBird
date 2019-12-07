@@ -11,10 +11,10 @@ position = Vector2( -3.20776, -26.4776 )
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
 position = Vector2( 0, 305.058 )
-scale = Vector2( 1, 4.77024 )
+scale = Vector2( 0.48831, 4.77024 )
 texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 0, 305.058 )
-scale = Vector2( 1, 4.77024 )
+scale = Vector2( 0.547485, 4.77024 )
 polygon = PoolVector2Array( 64, -61.1, 64, 62, 61, 62, -62, 64, -62, 62.1, -64, 60.8, -64, -59, -59, -63.8, 59.2, -64 )
