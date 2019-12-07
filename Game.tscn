@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+wallSpeed = 50.0
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 243.734, 127.379 )
+scale = Vector2( 0.5, 0.5 )
+horizontal_speed = 0
+gravity = 15
+jump_speed = 20
+rotation_modifier = 5
+
+[node name="PipeSpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+[connection signal="timeout" from="PipeSpawnTimer" to="." method="_pipe_spawn"]

@@ -1,6 +1,8 @@
 extends Node2D
 
-export var window_height : int
+export var window_height : float
+export var speed : float
+
 onready var screen_size = get_viewport().size
 onready var Pipe = preload("res://Pipe.tscn")
 	
@@ -20,3 +22,10 @@ func _ready():
 	add_child(upperPipe)
 	var lowerPipe = make_pipe(window_center, true)
 	add_child(lowerPipe)
+
+func _physics_process(delta):
+	position.x += speed * delta
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()

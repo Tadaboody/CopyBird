@@ -4,10 +4,14 @@
 
 [node name="Wall" type="Node2D"]
 script = ExtResource( 1 )
-window_height = 100
+window_height = 100.0
+speed = 100.0
 
 [node name="WindowRoof" type="Position2D" parent="."]
 position = Vector2( 0, 120 )
 
 [node name="WindowFloor" type="Position2D" parent="."]
 position = Vector2( 0, 430 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited" flags=6]
