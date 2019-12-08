@@ -5,7 +5,8 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
-wallSpeed = 50.0
+wallSpeed = 70.0
+window_height = 150.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 243.734, 127.379 )
