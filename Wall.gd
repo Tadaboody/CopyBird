@@ -5,7 +5,6 @@ export var speed : float
 
 onready var screen_size = get_viewport().size
 onready var Pipe = preload("res://Pipe.tscn")
-	
 # Not that kind of pipe
 func make_pipe(window_center: float, flipped:bool):
 	var pipe : StaticBody2D = Pipe.instance()

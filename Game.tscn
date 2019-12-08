@@ -12,7 +12,6 @@ window_height = 150.0
 position = Vector2( 243.734, 127.379 )
 scale = Vector2( 0.5, 0.5 )
 horizontal_speed = 0
-gravity = 15
 jump_speed = 20
 rotation_modifier = 5
 

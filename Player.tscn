@@ -6,11 +6,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 60.694, 59.5678 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="Area2D"]
 script = ExtResource( 1 )
 horizontal_speed = 1
-gravity = 6
 jump_speed = 10
+fall_speed = 10
 rotation_modifier = 2
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -18,3 +18,4 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
