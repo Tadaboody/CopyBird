@@ -5,9 +5,11 @@ export var speed : float
 
 onready var screen_size = get_viewport().size
 onready var Pipe = preload("res://Pipe.tscn")
+
+signal stop
 # Not that kind of pipe
 func make_pipe(window_center: float, flipped:bool):
-	var pipe : StaticBody2D = Pipe.instance()
+	var pipe  = Pipe.instance()
 	if flipped:
 		pipe.rotate(deg2rad(180))
 	var coeff = 1 if not flipped else -1
@@ -28,3 +30,7 @@ func _physics_process(delta):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+
+
+func stop():
+	set_physics_process(false)

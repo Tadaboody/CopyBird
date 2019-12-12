@@ -14,9 +14,11 @@ func _pipe_spawn():
 	wall.position.x = get_viewport_rect().size.x
 	wall.speed = -wallSpeed
 	wall.window_height = window_height
-	add_child_below_node($Walls, wall)
+	$Walls.add_child(wall)
 
 func _on_Player_hit():
-	$Player.speed = Vector2(0,0)
 	$"Death Text".visible = true
 	$"Death Text/AnimationPlayer".play("Fade-In")
+	for wall in $Walls.get_children():
+		wall.stop()
+	$PipeSpawnTimer.stop()
