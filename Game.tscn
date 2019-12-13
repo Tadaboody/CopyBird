@@ -3,7 +3,7 @@
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Fade-In"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -25,7 +25,7 @@ window_height = 150.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 243.734, 127.379 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 3, 3 )
 jump_speed = 15
 fall_speed = 20
 rotation_modifier = 5
@@ -38,13 +38,14 @@ autostart = true
 [node name="Walls" type="Node" parent="."]
 
 [node name="Death Text" type="RichTextLabel" parent="."]
+light_mask = 0
 anchor_bottom = 0.42
 margin_right = 40.0
 margin_bottom = 40.0
-rect_scale = Vector2( 25.6442, 14.5715 )
+rect_scale = Vector2( 25.1362, 14.7666 )
 text = "You Died"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Death Text"]
-anims/Fade-In = SubResource( 2 )
+anims/Fade-In = SubResource( 1 )
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="PipeSpawnTimer" to="." method="_pipe_spawn"]
