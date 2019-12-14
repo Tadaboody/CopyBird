@@ -6,7 +6,6 @@ export var window_height : float
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_pipe_spawn()
-	$"Death Text".visible = false
 
 # Connected to PipeSpawnTimer
 func _pipe_spawn():
@@ -17,8 +16,6 @@ func _pipe_spawn():
 	$Walls.add_child(wall)
 
 func _on_Player_hit():
-	$"Death Text".visible = true
-	$"Death Text/AnimationPlayer".play("Fade-In")
 	for wall in $Walls.get_children():
 		wall.stop()
 	$PipeSpawnTimer.stop()
