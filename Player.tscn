@@ -1,31 +1,28 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprite_birdo1.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprite_birdo0.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprite_birdo0.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprite_birdo1.png" type="Texture" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "flap",
+"name": "fold",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "fold",
+"name": "flap",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 11.1608, 7.09978 )
+extents = Vector2( 9.25962, 5.95857 )
 
 [node name="Player" type="Area2D"]
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 horizontal_speed = 0
 jump_speed = 20
 fall_speed = 13
@@ -33,11 +30,15 @@ rotation_modifier = 2
 max_speed = 20
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.288742, -0.433115 )
 frames = SubResource( 1 )
-animation = "fold"
+animation = "flap"
 flip_h = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.580002, -0.839987 )
+position = Vector2( 1.22967, -1.48966 )
 shape = SubResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
