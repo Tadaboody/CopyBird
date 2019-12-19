@@ -23,6 +23,7 @@ func _ready():
 	add_child(upperPipe)
 	var lowerPipe = make_pipe(window_center, true)
 	add_child(lowerPipe)
+	$Window.position.y = window_center
 
 func _physics_process(delta):
 	position.x += speed * delta

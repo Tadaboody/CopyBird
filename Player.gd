@@ -9,6 +9,7 @@ export var max_speed : int
 onready var speed = Vector2(horizontal_speed, 0)
 
 signal hit
+signal score
 
 func update_position(speed):
 	position += speed
@@ -27,14 +28,17 @@ func update_animation(speed):
 		$Sprite.play("fold")
 	else:
 		$Sprite.play("flap")
-		
+
 func _physics_process(delta):
 	update_speed(delta)
 	update_animation(speed)
 	update_position(speed)
 
 func _on_Player_body_entered(body:Node2D):
-	emit_signal("hit")
-	set_physics_process(false)
-	$CollisionShape2D.set_deferred("disabled", true)
+	if body.is_in_group("Enemies"):
+		emit_signal("hit")
+		set_physics_process(false)
+		$CollisionShape2D.set_deferred("disabled", true)
+	if body.is_in_group("Points"):
+		emit_signal("score")
 

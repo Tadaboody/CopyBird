@@ -4,7 +4,9 @@
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
-[node name="Pipe" type="KinematicBody2D"]
+[node name="Pipe" type="KinematicBody2D" groups=[
+"Enemies",
+]]
 modulate = Color( 0.258824, 0.0745098, 0.0745098, 1 )
 position = Vector2( -3.20776, -26.4776 )
 

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Wall.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 75.6316 )
 
 [node name="Wall" type="Node2D" groups=[
 "Enemies",
@@ -16,4 +19,15 @@ position = Vector2( 0, 120 )
 position = Vector2( 0, 430 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="Window" type="StaticBody2D" parent="." groups=[
+"Points",
+]]
+position = Vector2( -4.17236, 276.086 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Window"]
+position = Vector2( 0.85675, 2.2821 )
+scale = Vector2( 1, 2 )
+shape = SubResource( 1 )
+[connection signal="stop" from="." to="." method="_on_Wall_stop"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited" flags=6]
