@@ -4,11 +4,18 @@ on:
   push:
     branches:
       - master
+      - actions
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
-
     steps:
     - uses: josephbmanley/build-godot-action@v1.2.1
+    - name: Upload html5
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        # Artifact name
+        name: Html5
+        # Directory containing files to upload
+        path: ./build/html5/
