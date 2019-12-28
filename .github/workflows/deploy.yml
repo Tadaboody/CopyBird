@@ -11,13 +11,22 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+    - name: echo pwd
+      run: echo $pwd
     - uses: actions/checkout@v2.0.0
     - name: Build godot exports
       uses: josephbmanley/build-godot-action@v1.2.1
+    - name: Zip Release
+      uses: TheDoctor0/zip-release@v0.2.1
+      with:
+        # Filename for archive
+        filename: release.zip # default is release.zip
+        # Base path for archive files
+        path: ./build/html5/# optional, default is .
     - name: Upload html5
       uses: actions/upload-artifact@v1.0.0
       with:
         # Artifact name
         name: Html5
         # Directory containing files to upload
-        path: ./build/html5/
+        path: release.zip
