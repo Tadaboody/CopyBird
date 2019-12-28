@@ -11,5 +11,4 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Build Godot
     - uses: josephbmanley/build-godot-action@v1.2.1
